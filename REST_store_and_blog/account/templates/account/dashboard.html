@@ -10,6 +10,7 @@ Hello, {{ user.username | default:'Guest'}}, This is Dashboard.
         <a href="{% url 'account:password_change' %}">Change Password</a>
     {% else %}
         <a href="{% url 'account:login' %}">Login</a>
+        <a href="{% url 'account:register' %}">Register</a>
     {% endif %}
 </div>
 
