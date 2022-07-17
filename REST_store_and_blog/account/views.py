@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from .forms import AccountCreationForm
@@ -11,7 +12,7 @@ class DashboardView(TemplateView):
 class AccountCreationFormView(FormView):
     template_name = 'account/register.html'
     form_class = AccountCreationForm
-    success_url = 'account:dashboard'
+    success_url = reverse_lazy('account:dashboard')
 
     def form_valid(self, form):
 
