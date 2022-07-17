@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1> {{ object.title }} </h1>
+    <br>
+    {{ object.text }}
+    <br>
+    <h3> {{ object.author }} </h3>
+
+    <a href="{% url 'blog:listview' %}"> Back to Posts </a>
+
+{% endblock content %}
+
