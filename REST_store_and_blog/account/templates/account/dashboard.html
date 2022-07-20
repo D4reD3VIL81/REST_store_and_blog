@@ -2,7 +2,7 @@
 
 {% block content %}
 
-Hello, {{ user.username | default:'Guest'}}, This is Dashboard.
+Hello {{ user.name | default:'Guest'}}, This is Dashboard.
 
 <div>
     {% if user.is_authenticated %}

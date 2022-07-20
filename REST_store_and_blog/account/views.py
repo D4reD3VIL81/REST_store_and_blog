@@ -15,5 +15,8 @@ class AccountCreationFormView(FormView):
     success_url = reverse_lazy('account:dashboard')
 
     def form_valid(self, form):
+        user = form.save(commit=False)
+        print(user)
+        user.save()
 
         return super().form_valid(form)

@@ -4,9 +4,9 @@ from .views import PostDetailView, PostListView, PostCreateView, PostDeleteView,
 app_name = 'blog'
 
 urlpatterns = [
-    path('listview/', PostListView.as_view(), name='listview'),
-    path('<slug:slug>/', PostDetailView.as_view(), name='detailview'),
-    path('<slug:slug>/update/', PostUpdateView.as_view(), name='update'),
+    path('list/', PostListView.as_view(), name='listview'),
+    path('<int:pk>/', PostDetailView.as_view(), name='detailview'),
+    path('<int:pk>/update/', PostUpdateView.as_view(), name='update'),
     path('create/', PostCreateView.as_view(), name='create'),
-    path('<slug:slug>/delete/', PostDeleteView.as_view(), name='delete'),
+    path('<int:pk>/delete/', PostDeleteView.as_view(), name='delete')
 ]

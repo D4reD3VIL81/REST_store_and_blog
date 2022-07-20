@@ -2,12 +2,13 @@
 
 {% block content %}
     <ul>
-        {{ for post in object_list }}
+        {% for object in object_list %}
 
-            <h1>{{ post.title }}<h1>
-            {{ post.author }}
-
-        {{ endfor }}
+            <h6>{{ object.title }}<h6>
+            {{ object.author }}
+            <a href="{% url 'blog:detailview' pk=object.id %}"> Link <a>
+        {% empty %}
+        {% endfor %}
     </ul>
 {% endblock content %}
 

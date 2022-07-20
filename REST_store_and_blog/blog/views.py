@@ -11,6 +11,11 @@ class PostListView(ListView):
     model = Post
     template_name = 'blog/listview.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
+
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/detailview.html'
@@ -24,6 +29,8 @@ class PostCreateView(CreateView):
     model = Post
     template_name = 'blog/create.html'
     fields = ['title', 'text', 'author']
+    success_url = reverse_lazy('blog:listview')
+
 
 class PostUpdateView(UpdateView):
     model = Post
